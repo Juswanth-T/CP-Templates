@@ -1,0 +1,63 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"prime factorization using O(log n) time complexity with pre-computation allowed (usint sieve O(nloglogn)).": {
+		"prefix": "sieve_primefactors",
+		"body":  [
+			"const int N = ${1:1e6 + 1};",
+			" ",
+			"// stores smallest prime factor for every number",
+			"int spf[N];",
+			" ",
+			"// Calculating SPF (Smallest Prime Factor) for every number till N.",
+			"// Time Complexity : O(nloglogn)",
+			"void sieve()",
+			"{",
+			"    spf[1] = 1;",
+			"    for (int i = 2; i < N; i++) spf[i] = i;",
+			"",
+			"    for (int i = 4; i < N; i += 2) spf[i] = 2;",
+			" ",
+			"    for (int i = 3; i * i < N; i++) {",
+			"        if (spf[i] == i) {",
+			"            for (int j = i * i; j < N; j += i)",
+			"                if (spf[j] == j) spf[j] = i;",
+			"        }",
+			"    }",
+			"}",
+			" ",
+			"// A O(log n) function returning primefactorization",
+			"// by dividing by smallest prime factor at every step",
+			"vector<int> getFactorization(int x)",
+			"{",
+			"    vector<int> ret;",
+			"    while (x != 1) {",
+			"        ret.push_back(spf[x]);",
+			"        x = x / spf[x];",
+			"    }",
+			"    return ret;",
+			"}",
+			"",
+			"// <---------------- Don't forget to add sieve() in int_main ----------------->",
+			""
+		  ],
+		"description": "prime factorization using O(log n) time complexity with pre-computation allowed (usint sieve O(nloglogn))."
+	  }
+
+
+}

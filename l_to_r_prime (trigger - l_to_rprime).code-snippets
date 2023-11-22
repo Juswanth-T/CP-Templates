@@ -1,0 +1,79 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"l_to_rprime": {
+		"prefix": "l_to_rprime",
+		"body": [
+			"// If its a query based question put N as max value of root(r)",
+			"const int N = ${1:1e6 + 1};",
+			"bool isprime[N+1];",
+			"",
+			"// O(nloglogn) ",
+			"void sieve(){",
+			"    for(int i =0 ;  i <=N ;  i++){",
+			"        if(i>=2) isprime[i] = 1;",
+			"        else isprime[i] = 0;",
+			"    }",
+			"",
+			"    for(int i = 2;i*i<=N;i++){",
+			"        if(isprime[i]){",
+			"            for(int j = i*i;j<=N;j+=i){",
+			"                isprime[j] = 0;",
+			"            }",
+			"        }",
+			"    }",
+			"}",
+			"",
+			"// Generate primes from 1 to n (O(n)) while querying. ",
+			"// Its O(nloglogn) with precomputation.",
+			"vector<int> generatePrimes(int n){",
+			"     vector<int> ds;",
+			"     for(int i = 2;i<=n;i++){",
+			"        if(isprime[i]) ds.push_back(i);",
+			"     }",
+			"     return ds;",
+			"}",
+			"",
+			"// Generate primes from l to r (O(r-l+1)loglog(r)) while querying. ",
+			"// Its O(root(r)loglog(root(r)) + (r-l+1)loglog(r)) with precomputation.",
+			"vector <int> segmetedPrimes(int l, int r){",
+			"",
+			"    vector<int> primes = generatePrimes(sqrt(r)); // prime numbers till root(r)",
+			"    vector<bool> dummy(r-l + 1,1);",
+			"    vector<int> res;",
+			"    for(auto pr: primes){",
+			"        int firstmultiple = (l/pr)*pr;",
+			"        if(firstmultiple<l) firstmultiple += pr;",
+			"        for(int j = max(firstmultiple,pr*pr); j<=r;j+= pr) dummy[j-l] = 0;",
+			"    }",
+			"    for(int i = l;i<=r;i++){",
+			"        if(dummy[i-l]) {",
+			"            if(i!=1) res.push_back(i);",
+			"        }",
+			"    }",
+			"    return res;",
+			"}",
+			"",
+			"",
+			"// <---------------- Don't forget to add sieve() in int_main ---------------->"
+		  ],
+		"description": "l_to_rprime"
+	  }
+
+
+}

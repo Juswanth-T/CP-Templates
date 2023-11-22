@@ -1,0 +1,41 @@
+{
+	"MaxXOr": {
+		"prefix": "tries",
+		"body": [
+		  "struct trie{ trie *a[2]; };",
+		  "",
+		  "void build(vector<int> &inp, trie *head){",
+		  "     int n = inp.size();",
+		  "     for(int i =0;  i < n ;  i++){",
+		  "        trie *node = head;",
+		  "        for(int j = 31;  j >=0 ;  j--){",
+		  "            int bit = (inp[i] >> j) & 1 ;",
+		  "            if(!node->a[bit]) node->a[bit] = new trie();",
+		  "            node = node->a[bit];",
+		  "        }",
+		  "     }",
+		  "}",
+		  "",
+		  "// Returns the max XOR of num with all elements of inp;",
+		  "int maxXor(int num, trie *head){",
+		  "",
+		  "   trie *node = head;",
+		  "   int ans =0 ;",
+		  "   for(int i = 31;  i >=0 ;  i--){",
+		  "      int bit = (num >> i) & 1;",
+		  "      if(node -> a[!bit]){",
+		  "         node = node->a[!bit];",
+		  "         ans = ans | (1 << i);",
+		  "      } ",
+		  "      else node = node->a[bit];",
+		  "   }",
+		  "   return ans;",
+		  "   ",
+		  "}",
+		  "",
+		  "// trie *head = new trie();",
+		  "// build(inp, head);"
+		],
+		"description": "MaxXOr"
+	  }
+}

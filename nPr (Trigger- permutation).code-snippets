@@ -1,0 +1,70 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+"nPr (trigger : permutation)": {
+	"prefix": "permutation",
+	"body": [
+	  "",
+	  "const int N=1e7+1;",
+	  "int last_call=1;",
+	  "vector<int> fact(N);",
+	  "int fac(int n, int M){",
+	  "    // M need not be prime here.",
+	  "    if(fact[n]!=0) return fact[n];",
+	  "    fact[0]=1;",
+	  "    for(int i=last_call; i<=n; i++) fact[i]=(i*fact[i-1])%M;",
+	  "    last_call=n;",
+	  "    return fact[n];",
+	  "",
+	  "}",
+	  "",
+	  "int power(int x, int y, int p)",
+	  "{",
+	  "    // M need not be prime here",
+	  "    int res = 1;   ",
+	  "    x = x % p; ",
+	  "    if (x == 0) return 0; ",
+	  " ",
+	  "    while (y > 0)",
+	  "    {",
+	  "        if (y & 1) res = (res*x) % p;",
+	  "        y = y>>1; ",
+	  "        x = (x*x) % p;",
+	  "    }",
+	  "    return res;",
+	  "}",
+	  "",
+	  "int modInverse(int A, int M)",
+	  "{",
+	  "    // M should be Prime and less than sqrtl(LLONG_MAX)",
+	  "    return power(A, M - 2, M);",
+	  "}",
+	  "",
+	  "int nPr(int n, int r, int M)",
+	  "{",
+	  "    // M should be prime and less than sqrtl(LLONG_MAX).",
+	  "    if (n < r) return 0;",
+	  "    if (r == 0) return 1;",
+	  "    return ((fac(n,M)%M)*modInverse(fac(n-r,M),M))%M;",
+	  "}"
+	],
+	"description": "nPr (trigger : permutation)"
+  }
+
+}

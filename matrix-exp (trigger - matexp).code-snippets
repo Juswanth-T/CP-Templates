@@ -1,0 +1,38 @@
+{
+	"Matrix Exponentiation": {
+		"prefix": "matexp",
+		"body": [
+		  "vector<vector<int>> matmul(vector<vector<int>> &A, vector<vector<int>> &B,int mod){",
+		  "     int n = A.size();",
+		  "     int m = B[0].size();",
+		  "     int c = B.size();",
+		  "     vector<vector<int>> prod(n, vector<int> (m));",
+		  "     for(int i =0;  i < n ;  i++){",
+		  "        for(int j =0;  j < m ;  j++){",
+		  "            for(int k =0;  k < c ;  k++){",
+		  "                prod[i][j] += (A[i][k]%mod)*(B[k][j]%mod);",
+		  "                prod[i][j] = prod[i][j]%mod;",
+		  "            }",
+		  "        }",
+		  "     }",
+		  "",
+		  "     return prod;",
+		  "}",
+		  "",
+		  "vector<vector<int>> matpower(vector<vector<int>> &M, int rise, int mod){",
+		  "    int n = M.size();",
+		  "     vector<vector<int>> ans(n,vector<int> (n));",
+		  "     for(int i =0;  i < n ;  i++){",
+		  "        ans[i][i] = 1;",
+		  "     }",
+		  "     while(rise > 0){",
+		  "        if(rise%2) ans = matmul(ans,M,mod);",
+		  "        M = matmul(M,M,mod);",
+		  "        rise = rise/2;",
+		  "     }",
+		  "     return ans;",
+		  "}"
+		],
+		"description": "Matrix Exponentiation"
+	  }
+}
