@@ -1,0 +1,10 @@
+{
+
+	"": {
+		"prefix": "all",
+		"body": [
+		  "${1:inp}.begin(),${1:inp}.end()"
+		],
+		"description": ""
+	  }
+}
