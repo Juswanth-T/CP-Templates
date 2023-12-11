@@ -1,0 +1,28 @@
+{
+	"": {
+		"prefix": "interactive",
+		"body": [
+		  "// For Interactive Problems",
+		  "",
+		  "// First remove endl from macro",
+		  "",
+		  "// Query to the system (Format might change based on question)",
+		  "// cout<<\"? \"<<num<<endl;",
+		  "// cout.flush();",
+		  "",
+		  "// Receive answer from system",
+		  "// int y; cin>>y;  (System's answer will be in y)",
+		  "",
+		  "// Combining them",
+		  "// cout<<\"? \"<<num<<endl;",
+		  "// cout.flush();",
+		  "// int y; cin>>y;",
+		  "",
+		  "//Found answer",
+          "// cout<<\"! \"<<ans<<endl;",
+           "//cout.flush()",
+		  ""
+		],
+		"description": ""
+	  }
+}
