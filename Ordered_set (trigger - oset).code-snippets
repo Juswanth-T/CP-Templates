@@ -1,13 +1,15 @@
 {
-	"Ordered_set": {
+	"Ordered_Set": {
 		"prefix": "oset",
 		"body": [
+		  "// Put this right below namespace std",
 		  "#include <ext/pb_ds/assoc_container.hpp>",
 		  "#include <ext/pb_ds/tree_policy.hpp>",
 		  "using namespace __gnu_pbds;",
-		  "template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update> ;",
-		  ""
+		  "template<class T> using ordered_set =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;",
+		  "// order_of_key (K): Number of items strictly smaller than K. (returns an integer)",
+		  "// find_by_order(k): Kth element in a Set (counting from zero). (returns a iterator)"
 		],
-		"description": "Ordered_set"
+		"description": ""
 	  }
 }
