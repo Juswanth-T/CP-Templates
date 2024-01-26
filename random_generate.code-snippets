@@ -1,0 +1,13 @@
+{
+	"Random_Number_generator": {
+		"prefix": "random_generate",
+		"body": [
+		  "mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());",
+		  "int random_num(int l, int r){",
+		  "        auto dist = uniform_int_distribution<int>(l,r);",
+		  "        return dist(rng);",
+		  "}"
+		],
+		"description": "Random_Number_generator"
+	  }
+}
