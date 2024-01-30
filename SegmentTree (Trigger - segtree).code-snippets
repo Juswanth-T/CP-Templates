@@ -50,7 +50,7 @@
 	  "        int queryHelper(int index, int low, int high, int l, int r){",
 	  "",
 	  "            // Modify 1",
-	  "            if(l> high || low> r) return  ${2: 0;} // No overlap",
+	  "            if(l> high || low> r) return  ${2: 0}; // No overlap",
 	  "            if(l<=low && r>=high) return segtree[index]; // Complete overlap ",
 	  "            int mid = low + (high -low)/2;",
 	  "            int left = queryHelper(2*index + 1, low, mid, l, r);",
