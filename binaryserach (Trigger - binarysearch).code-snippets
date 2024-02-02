@@ -1,0 +1,20 @@
+{
+	"BinarySearch": {
+		"prefix": "binaryserach",
+		"body": [
+		  "int l = ${1:-1}, r = ${2:1e19};",
+		  "",
+		  "while(true){",
+		  "",
+		  "  int mid = l + (r-l)/2;",
+		  "  if(check(mid)) r = mid;",
+		  "  else l = mid;",
+		  "  if(r-l<= 1) break;",
+		  "",
+		  "}",
+		  "",
+		  "cout<<r<<endl;"
+		],
+		"description": "BinarySearch"
+	  }
+}
