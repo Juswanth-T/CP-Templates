@@ -1,0 +1,32 @@
+{
+	"String_matching": {
+		"prefix": "string_matching",
+		"body": [
+		  "vector<int> kmp_prefix(string s) {",
+		  "    int n = s.size();",
+		  "    vector<int> prefix(n);",
+		  "    // j always wanders within the length of pattern string",
+		  "    for (int i = 1; i < n; i++) {",
+		  "        int j = prefix[i-1];",
+		  "        while (j > 0 && s[i] != s[j]) j = prefix[j-1];",
+		  "        if (s[i] == s[j]) j++;",
+		  "        prefix[i] = j;",
+		  "    }",
+		  "    return prefix;",
+		  "}",
+		  "",
+		  "// prefix[i] -> Greatest prefix that is also a suffix ending at i",
+		  "// s = pattern + '#' + search_string => s = \"ab\" + \"#\" + \"abcabc\" ",
+		  "// s =      \"a b # a b c a b c\"",
+		  "// prefix = {0,0,0,1,2,0,1,2,0} -> No of occurance of pattern.size() is the answer for",
+		  "// the number of occurance of pattern in search_string",
+		  "",
+		  "",
+		  "// Example 2 for more clear understanding of the how prefix calculation is done",
+		  "// pattern = \"abcdabcy\", search_string = \"abcdabcd\" ",
+		  "// s =      \"a b c d a b c y # a b c d a b c d\"",
+		  "// prefix = {0,0,0,0,1,2,3,0,0,1,2,3,4,5,6,7,4}"
+		],
+		"description": "String_matching"
+	  }
+}
