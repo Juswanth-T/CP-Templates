@@ -1,0 +1,27 @@
+{
+	"extended_gcd": {
+		"prefix": "extended_gcd",
+		"body": [
+		  "// O(log(min(a,b)))",
+		  "int extended_gcd(int a, int b, int& x, int& y) {",
+		  "    if (b == 0) {",
+		  "        x = 1;",
+		  "        y = 0;",
+		  "        return a;",
+		  "    }",
+		  "    int x1, y1;",
+		  "    int d = extended_gcd(b, a % b, x1, y1);",
+		  "    x = y1;",
+		  "    y = x1 - y1 * (a / b);",
+		  "    return d;",
+		  "}",
+		  "// Give 'a' and 'b' as input, gives (x,y) such that ax + by = gcd(a,b) = g.",
+		  "// extended_gcd(a,b,x,y) returns gcd(a,b)",
+		  "// valid for 'a' and 'b' being negative as well",
+		  "",
+		  "// Used to find a general solution to ax' + by' = c.",
+		  "// one solution being -> x' = (x/g)*c , y' = (y/g)*c. Solution does not exist when c%g != 0"
+		],
+		"description": "extended_gcd"
+	  }
+}
