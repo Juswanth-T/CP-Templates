@@ -61,7 +61,7 @@
 			"    // M should be prime and less than sqrtl(LLONG_MAX).",
 			"    invfact[0]=1;",
 			"    if(invfact[n]!=0) return invfact[n];",
-			"    else return invfact[n] = modInverse(fac(n),M);",
+			"    else return invfact[n] = modInverse(fac(n,M),M);",
 			"",
 			"}",
 			"",
